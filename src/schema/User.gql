@@ -1,0 +1,42 @@
+type User {
+  id: String
+  firstName: String
+  lastName: String
+  birthDate: Date
+  age: String
+  fullName: String
+}
+
+enum UserOrder {
+  age_ASC
+  age_DESC
+  lastName_ASC
+  lastName_DESC
+}
+
+type Query {
+  allUsers(first: Int, skip: Int, orderBy: UserOrder): [User]
+  getUser(id: String): User
+}
+
+type UserResponse {
+  success: Boolean
+  message: String
+  user: User
+}
+type Mutation {
+  createUser(
+    firstName: String!
+    lastName: String!
+    birthDate:Date!
+  ): UserResponse,
+  updateUser(
+    id: String
+    firstName: String
+    lastName: String
+    birthDate: Date
+  ): UserResponse,
+  deleteUser(
+    id: String
+  ): UserResponse
+}

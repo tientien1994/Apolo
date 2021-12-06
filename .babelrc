@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "env"
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-object-rest-spread"
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "."
+        ],
+        "alias": {
+          "root": "./src",
+          "utils": "./src/utils",
+        },
+        "cwd": "babelrc"
+      }
+    ]
+  ]
+}

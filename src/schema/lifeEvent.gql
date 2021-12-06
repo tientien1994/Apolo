@@ -1,0 +1,37 @@
+type LifeEvent {
+  id: String
+  date: Date
+  content: String
+}
+
+enum LifeEventOrder {
+  date_ASC
+  date_DESC
+  content_ASC
+  content_DESC
+}
+
+type Query {
+  allLifeEvents(first: Int, skip: Int, orderBy: LifeEventOrder): [LifeEvent]
+  getLifeEvent(id: String): LifeEvent
+}
+
+type LifeEventResponse {
+  success: Boolean
+  message: String
+  lifeEvent: LifeEvent
+}
+type Mutation {
+  createLifeEvent(
+    date: Date!
+    content: String!
+  ): LifeEventResponse,
+  updateLifeEvent(
+    id: String
+    content: String
+    date: Date
+  ): LifeEventResponse,
+  deleteLifeEvent(
+    id: String
+  ): LifeEventResponse
+}
